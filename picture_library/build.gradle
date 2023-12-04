@@ -24,8 +24,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api project(':ucrop')
+    api fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+    //api project(':ucrop')
     //noinspection GradleCompatible
     implementation "androidx.appcompat:appcompat:${cfgs.version_appcompat}"
     //noinspection GradleCompatible
