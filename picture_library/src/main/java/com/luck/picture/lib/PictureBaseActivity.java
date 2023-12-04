@@ -42,6 +42,7 @@ import com.luck.picture.lib.tools.MediaUtils;
 import com.luck.picture.lib.tools.PictureFileUtils;
 import com.luck.picture.lib.tools.SdkVersionUtils;
 import com.luck.picture.lib.tools.ToastUtils;
+import com.luck.picture.lib.widget.PermissExplainDialog;
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropMulti;
 import com.yalantis.ucrop.model.CutInfo;
@@ -69,6 +70,8 @@ public abstract class PictureBaseActivity extends AppCompatActivity implements H
     protected Handler mHandler;
     protected View container;
     protected boolean isPreviewLoading;
+    public PermissExplainDialog mFileDialog;
+    public PermissExplainDialog mCameraDialog;
 
     /**
      * 是否使用沉浸式，子类复写该方法来确定是否采用沉浸式
@@ -123,6 +126,8 @@ public abstract class PictureBaseActivity extends AppCompatActivity implements H
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mFileDialog = new PermissExplainDialog(this,Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        mCameraDialog = new PermissExplainDialog(this,Manifest.permission.CAMERA);
         if (savedInstanceState != null) {
             config = savedInstanceState.getParcelable(PictureConfig.EXTRA_CONFIG);
             cameraPath = savedInstanceState.getString(PictureConfig.EXTRA_BUNDLE_CAMERA_PATH);

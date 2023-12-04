@@ -54,6 +54,7 @@ public class PictureSelectorCameraEmptyActivity extends PictureBaseActivity {
             PermissionChecker.requestPermissions(this, new String[]{
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE}, PictureConfig.APPLY_STORAGE_PERMISSIONS_CODE);
+            mFileDialog.show();
         }
         setTheme(R.style.Picture_Theme_Translucent);
         super.onCreate(savedInstanceState);
@@ -77,6 +78,7 @@ public class PictureSelectorCameraEmptyActivity extends PictureBaseActivity {
         } else {
             PermissionChecker.requestPermissions(this,
                     new String[]{Manifest.permission.CAMERA}, PictureConfig.APPLY_CAMERA_PERMISSIONS_CODE);
+            mCameraDialog.show();
         }
     }
 
@@ -269,6 +271,9 @@ public class PictureSelectorCameraEmptyActivity extends PictureBaseActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PictureConfig.APPLY_STORAGE_PERMISSIONS_CODE:
+                if (mFileDialog != null) {
+                    mFileDialog.dismiss();
+                }
                 // 存储权限
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     PermissionChecker.requestPermissions(this,
@@ -279,6 +284,9 @@ public class PictureSelectorCameraEmptyActivity extends PictureBaseActivity {
                 }
                 break;
             case PictureConfig.APPLY_CAMERA_PERMISSIONS_CODE:
+                if (mCameraDialog != null) {
+                    mCameraDialog.dismiss();
+                }
                 // 相机权限
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     onTakePhoto();
