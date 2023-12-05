@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
 android {
     compileSdkVersion cfgs.compileSdkVersion
 
@@ -28,17 +27,7 @@ android {
     }
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.github.zhaopanlong'
-            artifactId = 'PictureSelector2'
-            version = "2.5.0"
 
-            from components.java
-        }
-    }
-}
 
 dependencies {
     api fileTree(include: ['*.jar','*.aar'], dir: 'libs')
