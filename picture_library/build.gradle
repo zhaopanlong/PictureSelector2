@@ -33,7 +33,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.github.zhaopanlong'
             artifactId = 'PictureSelector2'
-            version = "v2.4.8"
+            version = "2.4.8"
         }
     }
 }
