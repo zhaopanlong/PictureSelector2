@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'maven-publish'
 android {
     compileSdkVersion cfgs.compileSdkVersion
 
@@ -25,6 +25,16 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.zhaopanlong'
+            artifactId = 'PictureSelector'
+            version = "v2.4.7"
+        }
     }
 }
 
