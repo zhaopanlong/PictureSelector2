@@ -31,12 +31,11 @@ android {
 publishing {
     publications {
         maven(MavenPublication) {
-            from components.release
-
             groupId = 'com.github.zhaopanlong'
             artifactId = 'PictureSelector2'
-            version = "2.4.9"
+            version = "2.5.0"
 
+            from components.java
         }
     }
 }
