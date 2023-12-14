@@ -54,7 +54,9 @@ public class PictureSelectorCameraEmptyActivity extends PictureBaseActivity {
             PermissionChecker.requestPermissions(this, new String[]{
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE}, PictureConfig.APPLY_STORAGE_PERMISSIONS_CODE);
-            mFileDialog.show();
+            if (mFileDialog != null){
+                mFileDialog.show();
+            }
         }
         setTheme(R.style.Picture_Theme_Translucent);
         super.onCreate(savedInstanceState);
@@ -78,7 +80,9 @@ public class PictureSelectorCameraEmptyActivity extends PictureBaseActivity {
         } else {
             PermissionChecker.requestPermissions(this,
                     new String[]{Manifest.permission.CAMERA}, PictureConfig.APPLY_CAMERA_PERMISSIONS_CODE);
-            mCameraDialog.show();
+            if (mCameraDialog != null){
+                mCameraDialog.show();
+            }
         }
     }
 
