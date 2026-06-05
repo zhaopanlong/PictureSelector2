@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.luck.picture.lib.R;
-import com.luck.picture.lib.app.PictureAppMaster;
 import com.luck.picture.lib.config.PictureSelectionConfig;
 
 public class PermissExplainDialog extends Dialog {
@@ -24,11 +23,11 @@ public class PermissExplainDialog extends Dialog {
         TextView tvFileDescribe = findViewById(R.id.tvFileDescribe);
         TextView tvCameraDescribe = findViewById(R.id.tvCameraDescribe);
 
-        if (!TextUtils.isEmpty(PictureSelectionConfig.STORAGE_PERMISSIONS)){
-            tvFileDescribe.setText(PictureSelectionConfig.STORAGE_PERMISSIONS);
+        if (!TextUtils.isEmpty(PictureSelectionConfig.STORAGE_PERMISSIONS_DESCRIBE)){
+            tvFileDescribe.setText(PictureSelectionConfig.STORAGE_PERMISSIONS_DESCRIBE);
         }
-        if (!TextUtils.isEmpty(PictureSelectionConfig.CAMERA_PERMISSIONS)){
-            tvCameraDescribe.setText(PictureSelectionConfig.CAMERA_PERMISSIONS);
+        if (!TextUtils.isEmpty(PictureSelectionConfig.CAMERA_PERMISSIONS_DESCRIBE)){
+            tvCameraDescribe.setText(PictureSelectionConfig.CAMERA_PERMISSIONS_DESCRIBE);
         }
 
         llFile.setVisibility(View.GONE);
