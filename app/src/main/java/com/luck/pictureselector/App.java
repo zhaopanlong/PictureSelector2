@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.luck.picture.lib.app.PictureAppMaster;
 import com.luck.picture.lib.app.IApp;
+import com.luck.picture.lib.config.PictureSelectionConfig;
 import com.luck.picture.lib.crash.PictureSelectorCrashUtils;
 import com.squareup.leakcanary.LeakCanary;
 
@@ -29,13 +30,15 @@ public class App extends Application implements IApp {
 
         });
         /** PictureSelector日志管理配制结束 **/
-
+        PictureSelectionConfig.CAMERA_PERMISSIONS = "请允许访问相机权限，否则无法正常使用拍照功能！";
+        PictureSelectionConfig.STORAGE_PERMISSIONS = "请允许访问存储权限，否则无法正常使用选择图片功能！";
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
             return;
         }
         LeakCanary.install(this);
+
     }
 
     @Override

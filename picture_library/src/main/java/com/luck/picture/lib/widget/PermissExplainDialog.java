@@ -8,7 +8,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.luck.picture.lib.R;
+import com.luck.picture.lib.app.PictureAppMaster;
+import com.luck.picture.lib.config.PictureSelectionConfig;
 
 public class PermissExplainDialog extends Dialog {
     public PermissExplainDialog(Context context, String permission) {
@@ -18,6 +21,15 @@ public class PermissExplainDialog extends Dialog {
         getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         LinearLayout llFile = findViewById(R.id.llFile);
         LinearLayout llCamera = findViewById(R.id.llCamera);
+        TextView tvFileDescribe = findViewById(R.id.tvFileDescribe);
+        TextView tvCameraDescribe = findViewById(R.id.tvCameraDescribe);
+
+        if (!TextUtils.isEmpty(PictureSelectionConfig.STORAGE_PERMISSIONS)){
+            tvFileDescribe.setText(PictureSelectionConfig.STORAGE_PERMISSIONS);
+        }
+        if (!TextUtils.isEmpty(PictureSelectionConfig.CAMERA_PERMISSIONS)){
+            tvCameraDescribe.setText(PictureSelectionConfig.CAMERA_PERMISSIONS);
+        }
 
         llFile.setVisibility(View.GONE);
         llCamera.setVisibility(View.GONE);

@@ -25,6 +25,11 @@ import java.util.List;
  */
 
 public final class PictureSelectionConfig implements Parcelable {
+    //相机权限描述
+    public static String CAMERA_PERMISSIONS = "";
+    //存储权限描述
+    public static String STORAGE_PERMISSIONS = "";
+
     public int chooseMode;
     public boolean camera;
     public boolean isSingleDirectReturn;

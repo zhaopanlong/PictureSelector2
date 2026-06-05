@@ -83,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:text="用于拍照、录制视频等"
                     android:textColor="#999"
+                    android:id="@+id/tvCameraDescribe"
                     />
             </LinearLayout>
         </LinearLayout>
